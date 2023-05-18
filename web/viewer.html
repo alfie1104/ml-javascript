@@ -30,13 +30,15 @@
       }
 
       const options = {
-        size: 400,
+        size: 500,
         axesLabels: featureNames,
         styles: utils.styles,
-        transparency: 0.2,
+        transparency: 0.7,
+        icon: "image",
       };
+      graphics.generateImages(utils.styles);
 
-      const chart = new Chart(chartContainer, samples, options);
+      const chart = new Chart(chartContainer, samples, options, handleClick);
     </script>
   </body>
 </html>
