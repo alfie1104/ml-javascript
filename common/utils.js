@@ -5,7 +5,7 @@ utils.flaggedUsers = [1663053145814, 1663855369903, 1663855455207];
 utils.styles = {
   car: { color: "gray", text: "🚗" },
   fish: { color: "red", text: "🐠" },
-  house: { color: "yello", text: "🏠" },
+  house: { color: "yellow", text: "🏠" },
   tree: { color: "green", text: "🎄" },
   bicycle: { color: "cyan", text: "🚲" },
   guitar: { color: "blue", text: "🎸" },
