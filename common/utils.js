@@ -57,6 +57,40 @@ utils.getNearest = (loc, points) => {
   return nearestIndex;
 };
 
+utils.invLerp = (a, b, v) => {
+  return (v - a) / (b - a);
+};
+
+utils.normalizePoints = (points, minMax) => {
+  let min, max;
+  const dimensions = points[0].length;
+
+  if (minMax) {
+    min = minMax.min;
+    max = minMax.max;
+  } else {
+    min = [...points[0]]; //[x1, y1]
+    max = [...points[0]]; //[x1, y1]
+
+    //find min, max value
+    for (let i = 1; i < points.length; i++) {
+      for (let j = 0; j < dimensions; j++) {
+        min[j] = Math.min(min[j], points[i][j]);
+        max[j] = Math.max(max[j], points[i][j]);
+      }
+    }
+  }
+
+  //normalize values
+  for (let i = 0; i < points.length; i++) {
+    for (let j = 0; j < dimensions; j++) {
+      points[i][j] = utils.invLerp(min[j], max[j], points[i][j]);
+    }
+  }
+
+  return { min, max };
+};
+
 if (typeof module !== "undefined") {
   module.exports = utils;
 }
